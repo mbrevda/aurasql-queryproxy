@@ -1,0 +1,15 @@
+{
+    "name": "mbrevda/aurasql-bind-query",
+    "description": "Class to proxy Aura Sql and Query methods",
+    "require": {
+        "aura/sql": "2.*@dev",
+        "aura/sql-query": "2.*@dev"
+    },
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Moshe Brevda",
+            "email": "mbrevda@gmail.com"
+        }
+    ]
+}
