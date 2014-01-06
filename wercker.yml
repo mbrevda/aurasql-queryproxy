@@ -17,3 +17,6 @@ build:
       - mbrevda/phpcs:
             directory: src/
             standard: PSR2
+      - script:
+        name: PHPUnit
+        code: vendor/bin/phpunit --configuration test/phpunit.xml
