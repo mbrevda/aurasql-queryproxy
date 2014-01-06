@@ -17,8 +17,8 @@
         }
 	],
     "autoload": {
-        "psr-0": {
-            "Mbrevda": "src/"
+        "psr-4": {
+            "Mbrevda\\Queryproxy\\": "src/"
         }
     } 
 }
