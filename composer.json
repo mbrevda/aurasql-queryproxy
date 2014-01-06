@@ -7,7 +7,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
-        "squizlabs/php_codesniffer": "1.*"
+        "squizlabs/php_codesniffer": "1.*",
+        "composer/composer": "1.0.*@dev"
     },
     "license": "BSD",
     "authors": [
