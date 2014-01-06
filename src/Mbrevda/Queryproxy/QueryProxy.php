@@ -1,5 +1,7 @@
 <?php
 
+namespace Mbrevda\Queryproxy;
+
 use \Aura\Sql_Query\QueryFactory;
 
 class QueryProxy

@@ -1,10 +1,10 @@
 <?php
 
 include(__DIR__ . '/vendor/autoload.php');
-include(__DIR__ . '/Db.php');
-include(__DIR__ . '/QueryProxy.php');
 
-$db = new Db('mysql:host=127.0.0.1;dbname=db', 'root', '');
+use \Mbrevda\Queryproxy\Db;
+
+$db = new Db('sqlite::memory:', '', '');
 
 $q = $db->select()
     ->cols(['*'])
