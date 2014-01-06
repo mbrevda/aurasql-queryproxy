@@ -52,14 +52,40 @@ class QueryProxy
     */
     public function __call($method, $args)
     {
+        /**
+         * List of methods that need to be returned litteraly 
+         * (i.e. dont return $this)
+         */
+        $returnQuery = [
+            'getBindValues'
+        ];
+
         if (method_exists($this->query, $method)) {
-            call_user_func_array([$this->query, $method], $args);
-            return $this;
+            $ret = call_user_func_array([$this->query, $method], $args);
+            return in_array($method, $returnQuery) ? $ret : $this;
         } else {
             return call_user_func_array([$this->db, $method], [
                 $this->query->__toString(),
                 $this->query->getBindValues()
             ]);
         }
+    }
+
+    /**
+     * Returns the current query as a string
+     *
+     * @return string the current query
+     */
+    public function __toString()
+    {
+        return $this->query->__toString();
+    }
+
+    /**
+     * Executes a query
+     */
+    public function exec(){
+        $this->db->bindValues($this->query->getBindValues());
+        return $this->db->exec($this->query->__toString());
     }
 }

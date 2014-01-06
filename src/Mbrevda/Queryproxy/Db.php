@@ -7,13 +7,6 @@ use \Aura\Sql_Query\QueryFactory;
 
 class Db extends ExtendedPdo
 {
-    
-    /**
-     * Sql Query instance
-     *
-     * @val $query
-     */
-     private $query;
 
     /**
      * Returns a Select object
