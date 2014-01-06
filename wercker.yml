@@ -7,9 +7,6 @@ build:
       - mbrevda/php-lint:
           directory: .
       - script:
-          name: update composer
-          code: composer selfupdate
-      - script:
           name: install dependencies
           code: composer install --no-interaction
       - script:
