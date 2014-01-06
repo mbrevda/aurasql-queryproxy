@@ -1,5 +1,5 @@
 {
-    "name": "mbrevda/aurasql-bind-query",
+    "name": "mbrevda/aurasql-queryproxy",
     "description": "Class to proxy Aura Sql and Query methods",
     "require": {
         "aura/sql": "2.*@dev",
