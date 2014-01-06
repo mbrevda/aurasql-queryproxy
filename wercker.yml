@@ -19,4 +19,4 @@ build:
             standard: PSR2
       - script:
             name: PHPUnit
-            code: vendor/bin/phpunit --configuration test/phpunit.xml
+            code: vendor/bin/phpunit --configuration tests/phpunit.xml
