@@ -18,5 +18,5 @@ build:
             directory: src/
             standard: PSR2
       - script:
-        name: PHPUnit
-        code: vendor/bin/phpunit --configuration test/phpunit.xml
+            name: PHPUnit
+            code: vendor/bin/phpunit --configuration test/phpunit.xml
