@@ -10,9 +10,6 @@ build:
           name: install dependencies
           code: composer install --no-interaction
       - script:
-          name: update composer, using latest version
-          code: vendor/bin/composer update --no-interaction
-      - script:
           name: echo php information
           code: |
             echo "php version $(php --version) running"
