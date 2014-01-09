@@ -8,7 +8,7 @@ build:
           directory: .
       - script:
           name: install dependencies
-          code: composer install --no-interaction
+          code: composer install --no-interaction --prefer-source
       - script:
           name: echo php information
           code: |
