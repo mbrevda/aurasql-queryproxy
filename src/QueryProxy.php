@@ -84,8 +84,11 @@ class QueryProxy
     /**
      * Executes a query
      */
-    public function exec(){
-        $this->db->bindValues($this->query->getBindValues());
-        return $this->db->exec($this->query->__toString());
+    public function exec()
+    {
+        return $this->db->fetchAffected(
+            $this->query->__toString(),
+            $this->query->getBindValues()
+        );
     }
 }
