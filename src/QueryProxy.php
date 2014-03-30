@@ -3,6 +3,7 @@
 namespace Mbrevda\Queryproxy;
 
 use \Aura\Sql_Query\QueryFactory;
+use PDO;
 
 class QueryProxy
 {
