@@ -3,10 +3,11 @@
 namespace Mbrevda\Queryproxy;
 
 use \Aura\Sql_Query\QueryFactory;
+use PDO;
 
 class QueryProxy
 {
-    
+
     /**
      * Db instance
      *
@@ -20,26 +21,26 @@ class QueryProxy
      * @var @query
      */
     private $query;
-    
+
     /**
      * Construct
      *
-     * @param string $type the crud type 
+     * @param string $type the crud type
      * @param object $db the sql object
      */
     public function __construct($type, $db)
     {
         $this->db = $db;
-        
+
         //get a new factory
         $factory = new QueryFactory(
-            $db->getDbType(),
+            $db->getAttribute(PDO::ATTR_DRIVER_NAME),
             QueryFactory::COMMON
         );
 
         $this->query = call_user_func([$factory, 'new' . ucfirst($type)]);
     }
-   
+
    /**
     * Magic method to proxy method calls. Will try to call Query first, and Db
     * if method is not found
@@ -53,7 +54,7 @@ class QueryProxy
     public function __call($method, $args)
     {
         /**
-         * List of methods that need to be returned litteraly 
+         * List of methods that need to be returned litteraly
          * (i.e. dont return $this)
          */
         $returnQuery = [
