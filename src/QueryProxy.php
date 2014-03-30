@@ -3,7 +3,6 @@
 namespace Mbrevda\Queryproxy;
 
 use \Aura\Sql_Query\QueryFactory;
-use PDO;
 
 class QueryProxy
 {
@@ -34,8 +33,7 @@ class QueryProxy
 
         //get a new factory
         $factory = new QueryFactory(
-            $db->getAttribute(PDO::ATTR_DRIVER_NAME),
-            QueryFactory::COMMON
+            $db->getAttribute(PDO::ATTR_DRIVER_NAME)
         );
 
         $this->query = call_user_func([$factory, 'new' . ucfirst($type)]);

@@ -4,6 +4,7 @@ namespace Mbrevda\Queryproxy;
 
 use \Aura\Sql\ExtendedPdo;
 use \Aura\Sql_Query\QueryFactory;
+use PDO;
 
 class Db extends ExtendedPdo
 {
@@ -17,7 +18,7 @@ class Db extends ExtendedPdo
     {
         return new QueryProxy('select', $this);
     }
-    
+
     /**
      * Returns a Insert object
      *
@@ -27,7 +28,7 @@ class Db extends ExtendedPdo
     {
         return new QueryProxy('insert', $this);
     }
-    
+
     /**
      * Returns a Update object
      *
@@ -47,15 +48,5 @@ class Db extends ExtendedPdo
     public function delete()
     {
         return new QueryProxy('delete', $this);
-    }
-
-    /**
-     * Returns the Db connection type
-     *
-     * @return string the db type
-     */
-    public function getDbType()
-    {
-        return $this->driver;
     }
 }
