@@ -2,7 +2,7 @@
     "name": "mbrevda/aurasql-queryproxy",
     "description": "Class to proxy Aura Sql and Query methods",
     "require": {
-        "aura/sql": "2.*@dev",
+        "aura/sql": "2.*",
         "aura/sql-query": "2.*@dev"
     },
     "require-dev": {
