@@ -3,7 +3,7 @@
 namespace Mbrevda\Queryproxy;
 
 use \Aura\Sql\ExtendedPdo;
-use \Aura\Sql_Query\QueryFactory;
+use \Aura\SqlQuery\QueryFactory;
 
 class Db extends ExtendedPdo
 {
