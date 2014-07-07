@@ -91,4 +91,29 @@ class QueryProxy
             $this->query->getBindValues()
         );
     }
+    
+    /**
+     * Pass current instance to a callable for manipulation and return the
+     * processed object
+     *
+     * @param callable the callable that can minpulate $this
+     * @param array $opts to be passed to the function. 
+     *    will be prepeneded with $this
+     *
+     * @retrun object $this
+     *
+     */
+    public function filter()
+    {
+        $opts = func_get_args();
+        $callable = array_shift($opts);
+
+        // allow for a false call
+        if (!is_callable($callable)) {
+            return $this;
+        }
+
+        array_unshift($opts, $this);
+        return call_user_func_array($callable, $opts);
+    }
 }
