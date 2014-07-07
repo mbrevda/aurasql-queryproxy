@@ -104,4 +104,15 @@ class QueryProxyTest extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals('John Smith', $q[0]['name']);
     }
+
+    public function testFilter()
+    {
+        $db = $this->db->select();
+        
+        $ret = $db->filter(function ($db) {
+            return $db;
+        });
+
+        $this->assertEquals($db, $ret);
+    }
 }
