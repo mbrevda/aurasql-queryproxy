@@ -54,7 +54,7 @@ class Db extends ExtendedPdo
      */
     public function transactionStart()
     {
-        return $this->fetchAffected('BEGIN TRANSACTION;');
+        return $this->fetchAffected('START TRANSACTION');
     }
 
     /**
@@ -62,7 +62,7 @@ class Db extends ExtendedPdo
      */
     public function transactionSave()
     {
-        return $this->fetchAffected('COMMIT;');
+        return $this->fetchAffected('COMMIT');
     }
 
     /**
@@ -70,6 +70,6 @@ class Db extends ExtendedPdo
      */
     public function transactionCancel()
     {
-        return $this->fetchAffected('ROOLBACK;');
+        return $this->fetchAffected('ROOLBACK');
     }
 }
