@@ -50,7 +50,7 @@ class QueryProxy
     * @return object | mixed will return the current object if a Query method
     * was called, or a query results if a fb method was called
     */
-    public function __call($method, $args)
+    public function __call($method, $args = [])
     {
         /**
          * List of methods that need to be returned litteraly
@@ -64,10 +64,14 @@ class QueryProxy
             $ret = call_user_func_array([$this->query, $method], $args);
             return in_array($method, $returnQuery) ? $ret : $this;
         } else {
-            return call_user_func_array([$this->db, $method], [
+            // combine statement, values, and any passed options
+            array_unshift(
+                $args,
                 $this->query->__toString(),
                 $this->query->getBindValues()
-            ]);
+            );
+
+            return call_user_func_array([$this->db, $method], $args);
         }
     }
 
