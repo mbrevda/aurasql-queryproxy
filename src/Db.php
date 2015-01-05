@@ -54,7 +54,7 @@ class Db extends ExtendedPdo
      */
     public function transactionStart()
     {
-        return $this->fetchAffected('START TRANSACTION');
+        return $this->fetchAffected('BEGIN TRANSACTION');
     }
 
     /**
