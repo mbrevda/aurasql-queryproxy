@@ -70,6 +70,6 @@ class Db extends ExtendedPdo
      */
     public function transactionCancel()
     {
-        return $this->fetchAffected('ROOLBACK');
+        return $this->fetchAffected('ROLLBACK');
     }
 }
