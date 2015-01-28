@@ -48,28 +48,4 @@ class Db extends ExtendedPdo
     {
         return new QueryProxy('delete', $this);
     }
-
-    /**
-     * Start a transaction
-     */
-    public function transactionStart()
-    {
-        return $this->fetchAffected('BEGIN TRANSACTION');
-    }
-
-    /**
-     * Commit a transaction
-     */
-    public function transactionSave()
-    {
-        return $this->fetchAffected('COMMIT');
-    }
-
-    /**
-     * Cancel a transaction
-     */
-    public function transactionCancel()
-    {
-        return $this->fetchAffected('ROLLBACK');
-    }
 }
